@@ -1,4 +1,4 @@
-import axiosClient from "@/utilities/axios"
+import axiosClient from "@/utilities/axios.ts";
 
 type SignInResult = {
 	user: {
