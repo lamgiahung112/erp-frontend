@@ -1,4 +1,4 @@
-import signIn from '@/actions/auth/sign-in';
+import signIn from '@/src/apis/auth/sign-in.ts';
 import authenticationStore from '@/stores/authentication-store';
 import { useStore } from '@lamgiahung112/react-simple-store';
 import { useMutation } from '@tanstack/react-query';
