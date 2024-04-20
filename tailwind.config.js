@@ -15,7 +15,8 @@ export default {
       purple: colors.violet,
       yellow: colors.amber,
       pink: colors.fuchsia,
-      app_primary: '#7dd3fc'
+      app_primary: '#7dd3fc',
+      app_secondary: '#0ea5e9',
     },
 
 	},
