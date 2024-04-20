@@ -1,9 +1,9 @@
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import SignInForm from './components/authentication/sign-in';
-import NavigationBar from './components/navigation-bar';
 import { ToastContainer } from 'react-toastify';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Dashboard } from "@/src/pages/Dashboard.tsx";
+import { LoginPages } from "@/src/pages/LoginPages.tsx";
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import './index.css';
-import 'react-toastify/dist/ReactToastify.css';
 
 const queryClient = new QueryClient();
 
@@ -11,12 +11,14 @@ function App() {
   return (
     <>
       <QueryClientProvider client={queryClient}>
-        <div className="flex flex-col bg-neutral-300 w-screen h-screen">
-          <NavigationBar />
-          <SignInForm />
-        </div>
+        <BrowserRouter>
+          <Routes>
+            <Route path='/' element={<Dashboard/>} />
+            <Route path='/signup'  element={<LoginPages/>} />
+          </Routes>
+          <ToastContainer closeOnClick />
+        </BrowserRouter>
       </QueryClientProvider>
-      <ToastContainer closeOnClick />
     </>
   );
 }
