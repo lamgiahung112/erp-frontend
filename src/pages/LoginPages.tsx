@@ -1,5 +1,5 @@
 import { LoginForm } from '@/src/components/form/login-form.tsx';
-import { RegisterForm } from '@/src/components/form/register-form.tsx';
+import { RegisterForm } from '../components/form/RegisterForm';
 import { useState } from 'react';
 
 

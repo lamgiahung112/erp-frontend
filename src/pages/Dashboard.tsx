@@ -10,9 +10,5 @@ export const Dashboard = () => {
 
   return (
     <>
-      {/*<div className="flex flex-cl bg-neutral-300 w-screen h-screen">*/}
-      {/*/!*  <NavigationBar />*!/*/}
-      {/*/!*  <SignInForm />*!/*/}
-      {/*</div>*/}
     </>);
 }

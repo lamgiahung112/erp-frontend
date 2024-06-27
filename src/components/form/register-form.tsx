@@ -1,8 +1,4 @@
-import React, { FormEventHandler, useRef } from 'react';
-import { useStore } from '@lamgiahung112/react-simple-store';
-import authenticationStore from '@/stores/authentication-store.tsx';
-import { useMutation } from '@tanstack/react-query';
-import signIn from '@/src/apis/auth/sign-in.ts';
+import React, { FormEventHandler } from 'react';
 import { EyeIcon, EyeSlashIcon } from '@heroicons/react/16/solid';
 
 
@@ -12,24 +8,17 @@ export interface RegisterFormProps {
 
 export const RegisterForm = (props:RegisterFormProps) => {
   const { setToggleForm } = props
-  const { loadUser } = useStore(authenticationStore);
-  const usernameRef = useRef<HTMLInputElement>(null);
-  const passwordRef = useRef<HTMLInputElement>(null);
   const [isHidden, setHidePassword] = React.useState(true);
-  const registerMutation = useMutation({
-    mutationFn: signIn
-  })
-  const handleSubmit: FormEventHandler<HTMLFormElement> = async (e:React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
 
-    const handleRegister = registerMutation.mutateAsync({
-      username: usernameRef.current!.value,
-      password: passwordRef.current!.value
-    }).then((res) => {
-      loadUser(res.user, res.token);
-    })
+  const handleRegister = () => {
 
   }
+  
+  const handleSubmit: FormEventHandler<HTMLFormElement> = async (e:React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    handleRegister()
+  }
+
 
   return (
     <>

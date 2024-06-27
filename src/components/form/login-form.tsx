@@ -1,9 +1,5 @@
-import { EyeIcon, EyeSlashIcon, KeyIcon, UserIcon } from '@heroicons/react/16/solid';
-import React, { FormEventHandler, useRef } from 'react';
-import { useMutation } from '@tanstack/react-query';
-import signIn from '@/src/apis/auth/sign-in.ts';
-import { useStore } from '@lamgiahung112/react-simple-store';
-import authenticationStore from '@/stores/authentication-store.tsx';
+import { EyeIcon, EyeSlashIcon } from '@heroicons/react/16/solid';
+import React, { FormEventHandler } from 'react';
 
 export interface LoginFormProps {
   setToggleForm: (isLogin: boolean) => void
@@ -11,23 +7,10 @@ export interface LoginFormProps {
 
 export const LoginForm = (props:LoginFormProps) => {
   const { setToggleForm } = props
-  const { loadUser } = useStore(authenticationStore);
-  const usernameRef = useRef<HTMLInputElement>(null);
-  const passwordRef = useRef<HTMLInputElement>(null);
   const [isHidden, setHidePassword] = React.useState(true);
 
-  const signInMutation = useMutation({
-    mutationFn: signIn
-  })
-  const handleSubmit: FormEventHandler<HTMLFormElement> = async (e:React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    const handleLogin = signInMutation.mutateAsync({
-      username: usernameRef.current!.value,
-      password: passwordRef.current!.value
-    }).then((res) => {
-      loadUser(res.user, res.token);
-    })
+  const handleSubmit: FormEventHandler<HTMLFormElement> = async (_e:React.FormEvent<HTMLFormElement>) => {
+  
 
   }
 
